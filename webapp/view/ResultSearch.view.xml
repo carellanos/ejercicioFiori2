@@ -1,0 +1,62 @@
+<mvc:View controllerName="flightsearch.flights.controller.ResultSearch"
+    id="view2" 
+    xmlns:semantic="sap.m.semantic" 
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:tnt="sap.tnt"
+    xmlns="sap.m"
+    xmlns:table="sap.ui.table"
+    xmlns:fiori="sap.ui.webc.fiori">
+    <ScrollContainer id="id0" vertical="true" height="100%">
+        <tnt:ToolHeader id="id1">
+            <Button id="id2" icon="sap-icon://travel-itinerary" type="Transparent" press=".onHomePress">
+                <layoutData>
+                    <OverflowToolbarLayoutData id="id3" priority="NeverOverflow" />
+                </layoutData>
+            </Button>
+            <IconTabHeader
+                id="iconTabHeader"
+                selectedKey="invalidKey"
+                select=".onSelectTab"
+                backgroundDesign="Transparent"
+                mode="Inline">
+                <layoutData>
+                    <OverflowToolbarLayoutData id="id4" priority="NeverOverflow" shrinkable="true" />
+                </layoutData>
+                <items>
+                    <IconTabFilter id="id5" text="Conocenos" />
+                    <IconTabFilter id="id6" text="Antes de viajar" />
+                    <IconTabFilter id="id7" text="Atencion al cliente" />
+                </items>
+            </IconTabHeader>
+        </tnt:ToolHeader>
+        <Panel id="id18">
+            <Table id="container2" >
+                <columns>
+                    <Column id="cl0" width="11rem">
+						<Label id="lbl0" text="Desde/Hacia"/>
+					</Column>
+                    <Column id="cl1" width="11rem">
+						<Label id="lbl1" text="Fecha"/>
+					</Column>
+                    <Column id="cl2" width="11rem">
+						<Label id="lbl2" text="Tiempo de vuelo" />
+					</Column>
+                     <Column id="cl3" width="11rem">
+						<Label id="lbl4" text="Estado" />
+					</Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="ig1" vAlign="Middle" >
+                        <cells>
+                          <ObjectIdentifier id="ob1" title="{flights>CodFrom} - {flights>CodDestination}" text="{flights>DepTime} - {flights>ArrTime}" />
+                            <Text id="text1" text="{flights>Date}" />
+                            <Text id="text2" text="{flights>FlightTime}" />
+                            <Text id="text3" text="{flights>Status}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </Panel>
+     </ScrollContainer>
+</mvc:View>

@@ -1,0 +1,9 @@
+/* Enter your custom styles here */
+
+.positionFilterClass{
+    z-index: 2;
+}
+
+.positionCarruselClass{
+    z-index: 1;
+}

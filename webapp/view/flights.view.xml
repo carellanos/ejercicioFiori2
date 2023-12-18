@@ -1,0 +1,164 @@
+<mvc:View xmlns:unified="sap.ui.unified" controllerName="flightsearch.flights.controller.flights"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:tnt="sap.tnt"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m">
+    <!--<Page id="page" title="{i18n>title}">-->
+    <ScrollContainer id="id0" vertical="true" height="100%">
+	<tnt:ToolHeader id="id1">
+		<Button id="id2" icon="sap-icon://flight" type="Transparent" press=".onHomePress">
+			<layoutData>
+				<OverflowToolbarLayoutData id="id3" priority="NeverOverflow" />
+			</layoutData>
+		</Button>
+		<IconTabHeader
+			id="iconTabHeader"
+			selectedKey="invalidKey"
+			select=".onSelectTab"
+			backgroundDesign="Transparent"
+			mode="Inline">
+			<layoutData>
+				<OverflowToolbarLayoutData id="id4" priority="NeverOverflow" shrinkable="true" />
+			</layoutData>
+			<items>
+				<IconTabFilter id="id5" text="Conocenos" />
+				<IconTabFilter id="id6" text="Antes de viajar" />
+				<IconTabFilter id="id7" text="Atencion al cliente" />
+			</items>
+		</IconTabHeader>
+	</tnt:ToolHeader>
+	<Panel id="id18">
+        <IconTabBar
+		id="idIconTabBarFiori2"
+		class="sapUiResponsiveContentPadding positionFilter">
+            <items>
+                <IconTabFilter
+                    text="Vuelos"
+                    key="info"
+                    id="cont2">
+                    		<f:Form id="Formulario1"
+                                editable="true">
+                                <f:layout>
+                                    <f:ResponsiveGridLayout
+                                        labelSpanXL="4"
+                                        labelSpanL="4"
+                                        labelSpanM="12"
+                                        labelSpanS="12"
+                                        adjustLabelSpan="true"
+                                        emptySpanXL="0"
+                                        emptySpanL="0"
+                                        emptySpanM="0"
+                                        emptySpanS="0"
+                                        columnsXL="1"
+                                        columnsL="1"
+                                        columnsM="2"
+                                        singleContainerFullSize="false" id="resp1"  />
+                                </f:layout>
+                                <f:formContainers>
+                                    <f:FormContainer id="FormContainer1">
+                                        <f:formElements>
+                                            <f:FormElement id="FormElement1">
+                                                <RadioButtonGroup id="radButtGroup" columns="3" select=".onSelectRadiobutton">
+                                                    <RadioButton id="radButt1" text="Sólo ida" />
+                                                    <RadioButton id="radButt2" text="Ida y vuelta" selected="true" />
+                                                </RadioButtonGroup>
+                                            </f:FormElement>
+                                            <f:FormElement id="FormElement2">
+                                                <f:fields>
+                                                    <SearchField 
+                                                        id="searchField1"
+                                                        placeholder="Origen" 
+                                                        validationSuccess="true"
+                                                        enableSuggestions="true"                                                    
+                                                        suggest=".onSuggest"
+                                                        change="onNameChange"
+                                                        suggestionItems="{path: 'airports>/'}"
+                                                        showSearchButton="false">
+                                                        <SuggestionItem id="sug1" icon="sap-icon://building" text="{airports>CodCity} - {airports>City}" key="{airports>id}"/>
+                                                    </SearchField>
+                                                    <SearchField 
+                                                        id="searchField2"
+                                                        placeholder="Destino"
+                                                        enableSuggestions="true"                                                    
+                                                        suggest=".onSuggest2"
+                                                        suggestionItems="{path: 'airports>/'}"
+                                                        showSearchButton="false">
+                                                        <SuggestionItem id="sug2" icon="sap-icon://building" text="{airports>CodCity} - {airports>City}" key="{airports>id}"/>
+                                                    </SearchField>   
+                                                    <DatePicker
+                                                        id="DP1"
+                                                        required="true"
+                                                        placeholder="Fecha Ida"
+                                                        displayFormat="dd-MM-yyyy"
+                                                        valueFormat="dd-MM-yyyy"
+                                                        change="changeValueState"
+                                                        class="sapUiSmallMarginBottom"/>   
+                                                    <DatePicker
+                                                        id="DP2"
+                                                        required="true"
+                                                        placeholder="Fecha Regreso"
+                                                        displayFormat="dd-MM-yyyy"
+                                                        valueFormat="dd-MM-yyyy"
+                                                        change="changeValueState"
+                                                        class="sapUiSmallMarginBottom"/>    
+                                                     <Button id="btnSearch" text="Buscar" press="onValidate"></Button>                                              
+                                                </f:fields>                                              
+                                            </f:FormElement>
+                                        </f:formElements>
+                                    </f:FormContainer>                                    
+                                </f:formContainers>
+                            </f:Form>
+                </IconTabFilter>
+            </items>
+            <items>
+                <IconTabFilter
+                    text="Pago de reservas"
+                    key="info"
+                    id="cont1">
+                    <f:Form id="Formulario2"
+                                editable="true">
+                                <f:layout>
+                                    <f:ResponsiveGridLayout
+                                        labelSpanXL="0"
+                                        labelSpanL="0"
+                                        labelSpanM="1"
+                                        labelSpanS="1"
+                                        adjustLabelSpan="true"
+                                        emptySpanXL="0"
+                                        emptySpanL="0"
+                                        emptySpanM="0"
+                                        emptySpanS="0"
+                                        columnsXL="2"
+                                        columnsL="2"
+                                        columnsM="2"
+                                        singleContainerFullSize="false" id="re1" />
+                                </f:layout>
+                                <f:formContainers>
+                                    <f:FormContainer id="FormContainer2">
+                                        <f:formElements>
+                                            <f:FormElement id="FormElement3">
+                                                <f:fields>
+                                                    <Label id="lbl1" text="Código de reserva" />
+                                                    <Label id="lbl2" text="Apellido"/>
+                                                </f:fields>
+                                            </f:FormElement>
+                                            <f:FormElement id="FormElement4">
+                                                <f:fields>
+                                                    <Input id="input1" placeholder="ej.:ABCDEF" showClearIcon="true" required="true" change="changeValueState" liveChange="changeUppercase" />
+                                                    <Input id="input2" placeholder="ej:Fernandez" showClearIcon="true" required="true" change="changeValueState" liveChange="changeUppercase" />
+                                                    <Button id="Btn1" text="Continuar" press=".onValidate2" />
+                                                </f:fields>
+                                            </f:FormElement>
+                                        </f:formElements>    
+                                    </f:FormContainer>                                    
+                                </f:formContainers>
+                            </f:Form>
+                </IconTabFilter>
+            </items>
+      	</IconTabBar> 
+	</Panel>
+    </ScrollContainer>
+</mvc:View>
