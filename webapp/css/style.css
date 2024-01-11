@@ -1,9 +1,18 @@
 /* Enter your custom styles here */
 
-.positionFilterClass{
-    z-index: 2;
+.sapMNCValue {
+    display: inline-flex;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+    white-space: nowrap;
+    text-align: right;
+    text-overflow: ellipsis;
+    font-size: 2.25rem;
+    font-family: "72-Light","72-Lightfull","72","72full",Arial,Helvetica,sans-serif;
+    font-weight: normal;
 }
-
-.positionCarruselClass{
-    z-index: 1;
+.sapMTileCntFooterTextColorNeutral {
+    color: #00B140;
+    text-align: center;
 }

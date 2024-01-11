@@ -20,16 +20,12 @@ sap.ui.define([
             _onObjectMatched: function (oEvent) {
                 let oArgs, oView;
                 oArgs = oEvent.getParameter("arguments");
+                let valor = oArgs.reservationId - 1;
                 oView = this.getView();
 
                 oView.bindElement({
-                    path: `Reservations>/${oArgs.flightId}`
+                    path: `Reservations>/${valor}`
                 })
-
-                /*this.getView().bindElement({
-                    path: "/" + oEvent.getParameter("arguments").flightId,
-                    model: "flights"
-                });*/
 
             }
             

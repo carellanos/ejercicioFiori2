@@ -115,7 +115,7 @@
             </items>
             <items>
                 <IconTabFilter
-                    text="Pago de reservas"
+                    text="Reservas"
                     key="info"
                     id="cont1">
                     <f:Form id="Formulario2"
@@ -124,16 +124,16 @@
                                     <f:ResponsiveGridLayout
                                         labelSpanXL="0"
                                         labelSpanL="0"
-                                        labelSpanM="1"
-                                        labelSpanS="1"
-                                        adjustLabelSpan="true"
+                                        labelSpanM="12"
+                                        labelSpanS="2"
+                                        adjustLabelSpan="false"
                                         emptySpanXL="0"
                                         emptySpanL="0"
                                         emptySpanM="0"
                                         emptySpanS="0"
-                                        columnsXL="2"
+                                        columnsXL="1"
                                         columnsL="2"
-                                        columnsM="2"
+                                        columnsM="1"
                                         singleContainerFullSize="false" id="re1" />
                                 </f:layout>
                                 <f:formContainers>

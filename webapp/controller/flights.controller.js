@@ -156,10 +156,15 @@ sap.ui.define([
                     aValues.push("");
                 }
                 
+                console.log("avalues: "+aValues);
+                
                 if(aValues.length > 0){
                     console.log("dentro de if");
                     for(var i = 0; i < item.length; i++){
                         console.log("dentro de for");
+                        console.log("item[i].Date: "+item[i].Date);
+                        console.log("item[i].CodFrom: "+item[i].CodFrom);
+                        console.log("item[i].CodDestination: "+item[i].CodDestination);
                        if(item[i].Date == aValues[2] && item[i].CodFrom == aValues[0] && item[i].CodDestination == aValues[1]){
                             result.push(item[i]);
                         }
@@ -174,12 +179,10 @@ sap.ui.define([
 
             onValidate2: function(oEvent){
                 console.log("entro en onValidate2");
-                let aValues = [];
-                let result = [];
+                var aValues = [];
+                var result = [];
                 let oInput1 = this.byId("input1");
                 let oInput2 = this.byId("input2");
-                console.log("input1: "+oInput1);
-                console.log("input2: "+oInput2);
                 console.log("input1.value: "+oInput1.getValue());
                 console.log("input2.value: "+oInput2.getValue());
                 var dataMock = this.getOwnerComponent().getModel('Reservations').getData(); 
@@ -197,18 +200,20 @@ sap.ui.define([
                     aValues.push(oInput2.getValue());
                  }
 
-                 console.log("avalues: "+JSON.stringify(aValues));
+                 
                  if(aValues.length > 0){
                     console.log("dentro de if");
                     for(var i = 0; i < dataMock.length; i++){
                         console.log("dentro de for");
-                       if(dataMock[i].CodReservartion == aValues[0] && dataMock[i].PassengerLastname == aValues[1]){
+                       if(dataMock[i].CodReservation == aValues[0] && dataMock[i].PassengerLastname == aValues[1]){
                             result.push(dataMock[i]);
                         }
                     }
                 }
+
+                console.log("result: "+JSON.stringify(result));
                 let oRouter =  sap.ui.core.UIComponent.getRouterFor(this);// linea para hacer la navegacion
-                oRouter.navTo("TargetResultSearchReservationView",{resultId:result[0].id});  
+                oRouter.navTo("TargetResultSearchReservationView",{reservationId :result[0].id});  
             },
         
             changeUppercase: function(oEvent){

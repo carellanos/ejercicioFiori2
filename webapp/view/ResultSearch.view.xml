@@ -1,4 +1,4 @@
-<mvc:View controllerName="flightsearch.flights.controller.ResultSearch"
+<mvc:View xmlns:vk="sap.ui.vk" controllerName="flightsearch.flights.controller.ResultSearch"
     id="view2" 
     xmlns:semantic="sap.m.semantic" 
     xmlns:core="sap.ui.core"
@@ -9,7 +9,7 @@
     xmlns:fiori="sap.ui.webc.fiori">
     <ScrollContainer id="id0" vertical="true" height="100%">
         <tnt:ToolHeader id="id1">
-            <Button id="id2" icon="sap-icon://travel-itinerary" type="Transparent" press=".onHomePress">
+            <Button id="id2" icon="sap-icon://flight" type="Transparent" press=".onHomePress">
                 <layoutData>
                     <OverflowToolbarLayoutData id="id3" priority="NeverOverflow" />
                 </layoutData>
@@ -42,8 +42,14 @@
                     <Column id="cl2" width="11rem">
 						<Label id="lbl2" text="Tiempo de vuelo" />
 					</Column>
-                     <Column id="cl3" width="11rem">
-						<Label id="lbl4" text="Estado" />
+                    <Column id="cl3" width="11rem">
+						<Label id="lbl3" text="ECONOMY-LIGHT" />
+					</Column>
+                    <Column id="cl4" width="11rem">
+						<Label id="lbl4" text="ECONOMY-BASIC" />
+					</Column>
+                    <Column id="cl5" width="11rem">
+						<Label id="lbl5" text="ECONOMY-PLUS" />
 					</Column>
                 </columns>
                 <items>
@@ -52,7 +58,21 @@
                           <ObjectIdentifier id="ob1" title="{flights>CodFrom} - {flights>CodDestination}" text="{flights>DepTime} - {flights>ArrTime}" />
                             <Text id="text1" text="{flights>Date}" />
                             <Text id="text2" text="{flights>FlightTime}" />
-                            <Text id="text3" text="{flights>Status}" />
+                            <TileContent id="tCont1"  footer="{flights>Status}" >
+                             <content>
+                                <NumericContent  id="numCont1" icon="sap-icon://favorite" value="{flights>EcoLight}" scale="USD" press="onDialog1" />
+                             </content>
+                            </TileContent>                    
+                           <TileContent id="tCont2"  footer="{flights>Status}" >
+                            <content>
+                                <NumericContent  id="numCont2" value="{flights>EcoBasic}" scale="USD"  press="onDialog1" />
+                            </content>
+                            </TileContent>
+                            <TileContent id="tCont3"  footer="{flights>Status}" >
+                            <content>
+                                <NumericContent  id="numCont3"  value="{flights>EcoPluss}" scale="USD"  press="onDialog1"  />
+                            </content>
+                            </TileContent>
                         </cells>
                     </ColumnListItem>
                 </items>

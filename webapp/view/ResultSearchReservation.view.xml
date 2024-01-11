@@ -9,7 +9,7 @@
     xmlns:fiori="sap.ui.webc.fiori">
     <ScrollContainer id="id0" vertical="true" height="100%">
         <tnt:ToolHeader id="id1">
-            <Button id="id2" icon="sap-icon://travel-itinerary" type="Transparent" press=".onHomePress">
+            <Button id="id2" icon="sap-icon://flight" type="Transparent" press=".onHomePress">
                 <layoutData>
                     <OverflowToolbarLayoutData id="id3" priority="NeverOverflow" />
                 </layoutData>
@@ -56,7 +56,7 @@
                             <Text id="text1" text="{Reservations>Date}" />
                             <Text id="text2" text="{Reservations>FlightTime}" />
                             <Text id="text3" text="{Reservations>PassengerName} {Reservations>PassengerLastname}" />
-                            <Text id="text4" text="{Reservations>CodReservartion}" />
+                            <Text id="text4" text="{Reservations>CodReservation}" />
                         </cells>
                     </ColumnListItem>
                 </items>
